@@ -1,0 +1,2272 @@
+[2021-08-30 13:44:36Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2021-08-30 13:44:36Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:36Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:36Z INFO HostContext] Well known config file 'Credentials': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\.credentials'
+[2021-08-30 13:44:36Z INFO Worker] Version: 2.280.3
+[2021-08-30 13:44:36Z INFO Worker] Commit: 409920e9f03bd38fe6e58807f069394993ce32e4
+[2021-08-30 13:44:36Z INFO Worker] Culture: en-US
+[2021-08-30 13:44:36Z INFO Worker] UI Culture: en-US
+[2021-08-30 13:44:36Z INFO Worker] Waiting to receive the job message from the channel.
+[2021-08-30 13:44:36Z INFO ProcessChannel] Receiving message of length 22619, with hash '6464b23145bfafb0038ac74b0612d522b839ff4157aabf5b1e07f3cb7fe82750'
+[2021-08-30 13:44:36Z INFO Worker] Message received.
+[2021-08-30 13:44:37Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/laravel.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "shivammathur/setup-php",
+        "ref": "15c43e89cdef867065b0213be354c2841860869e",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "contextName": "__shivammathur_setup-php",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 15,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 15,
+              "col": 9,
+              "lit": "php-version"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 15,
+              "col": 22,
+              "lit": "8.0"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "aa43ff5b-a37a-5680-398b-6f9d7c2f6cff",
+      "name": "__shivammathur_setup-php"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v2",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "e524e2f4-ae61-51f7-1dcc-064a3d28baf3",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 17,
+        "col": 13,
+        "lit": "Copy .env"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 18,
+              "col": 12,
+              "lit": "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "f564f1cc-5328-5485-7ac8-9ceb8895104d",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 19,
+        "col": 13,
+        "lit": "Install Dependencies"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 20,
+              "col": 12,
+              "lit": "composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "d775c745-d835-5472-f201-bd3f308daea5",
+      "name": "__run_2"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 21,
+        "col": 13,
+        "lit": "Generate key"
+      },
+      "contextName": "__run_3",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 22,
+              "col": 12,
+              "lit": "php artisan key:generate"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "adbe0a88-3f03-52f6-da11-a5fda23b95d6",
+      "name": "__run_3"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 23,
+        "col": 13,
+        "lit": "Directory Permissions"
+      },
+      "contextName": "__run_4",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 24,
+              "col": 12,
+              "lit": "chmod -R 777 storage bootstrap/cache"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "92d3ef90-30e2-5a30-04ee-10f29fb11994",
+      "name": "__run_4"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 25,
+        "col": 13,
+        "lit": "Create Database"
+      },
+      "contextName": "__run_5",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 26,
+              "col": 12,
+              "lit": "mkdir -p database\ntouch database/database.sqlite\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "25a9060e-2a04-568f-96db-fd07cc03f2c2",
+      "name": "__run_5"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 29,
+        "col": 13,
+        "lit": "Execute tests (Unit and Feature tests) via PHPUnit"
+      },
+      "contextName": "__run_6",
+      "environment": {
+        "type": 2,
+        "file": 1,
+        "line": 31,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 31,
+              "col": 9,
+              "lit": "DB_CONNECTION"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 31,
+              "col": 24,
+              "lit": "sqlite"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 32,
+              "col": 9,
+              "lit": "DB_DATABASE"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 32,
+              "col": 22,
+              "lit": "database/database.sqlite"
+            }
+          }
+        ]
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 33,
+              "col": 12,
+              "lit": "vendor/bin/phpunit"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "80dd0e58-b9f5-56e6-bfac-e766330cbe82",
+      "name": "__run_6"
+    }
+  ],
+  "variables": {
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system": {
+      "value": "actions"
+    },
+    "system.hosttype": {
+      "value": "actions"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": "en-US"
+    },
+    "system.collectionId": {
+      "value": "d567c840-7e8a-4f33-9196-5afeddf165c6"
+    },
+    "system.collectionUri": {
+      "value": "https://pipelines.actions.githubusercontent.com/6MeKJFKPiKncU9EaXGzI9UfzqfUkC32W0nYAOVmc3q1ZAMwMIr/"
+    },
+    "system.taskDefinitionsUri": {
+      "value": "https://pipelines.actions.githubusercontent.com/6MeKJFKPiKncU9EaXGzI9UfzqfUkC32W0nYAOVmc3q1ZAMwMIr/"
+    },
+    "system.pipelineStartTime": {
+      "value": "2021-08-30 13:44:24+00:00"
+    },
+    "system.definitionId": {
+      "value": "3"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "2"
+    },
+    "build.containerId": {
+      "value": "32591"
+    },
+    "system.workflowFilePath": {
+      "value": ".github/workflows/laravel.yml"
+    },
+    "system.definitionName": {
+      "value": "foodmarket-bwa"
+    },
+    "system.planId": {
+      "value": "09194b8f-64d2-41d7-988f-c5fe553909b4"
+    },
+    "system.timelineId": {
+      "value": "09194b8f-64d2-41d7-988f-c5fe553909b4"
+    },
+    "system.phaseDisplayName": {
+      "value": "laravel-tests"
+    },
+    "system.phaseId": {
+      "value": "62044ced-e34f-55a5-50c3-53b6a847578f"
+    },
+    "system.phaseName": {
+      "value": "laravel-tests"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "laravel-tests.__default"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "1"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "1"
+    },
+    "system.github.job": {
+      "value": "laravel-tests"
+    },
+    "system.jobDisplayName": {
+      "value": "laravel-tests"
+    },
+    "system.jobId": {
+      "value": "58db5990-a15b-5a14-b197-cb3269b353df"
+    },
+    "system.jobName": {
+      "value": "__default"
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Actions\":\"write\",\"Checks\":\"write\",\"Contents\":\"write\",\"Deployments\":\"write\",\"Discussions\":\"write\",\"Issues\":\"write\",\"Metadata\":\"read\",\"Packages\":\"write\",\"PullRequests\":\"write\",\"RepositoryProjects\":\"write\",\"SecurityEvents\":\"write\",\"Statuses\":\"write\"}"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 15,
+    "planId": "09194b8f-64d2-41d7-988f-c5fe553909b4",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/2",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "foodmarket-bwa"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "anemadhon"
+    }
+  },
+  "timeline": {
+    "id": "09194b8f-64d2-41d7-988f-c5fe553909b4",
+    "changeId": 5,
+    "location": null
+  },
+  "jobId": "58db5990-a15b-5a14-b197-cb3269b353df",
+  "jobDisplayName": "laravel-tests",
+  "jobName": "__default",
+  "requestId": 2,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "d567c840-7e8a-4f33-9196-5afeddf165c6",
+          "ServerName": "6MeKJFKPiKncU9EaXGzI9UfzqfUkC32W0nYAOVmc3q1ZAMwMIr",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/6MeKJFKPiKncU9EaXGzI9UfzqfUkC32W0nYAOVmc3q1ZAMwMIr/"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelines.actions.githubusercontent.com/6MeKJFKPiKncU9EaXGzI9UfzqfUkC32W0nYAOVmc3q1ZAMwMIr/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/master"
+        },
+        {
+          "k": "sha",
+          "v": "78f79e6ccba5b22705af5d46d104b4bf598ac8ac"
+        },
+        {
+          "k": "repository",
+          "v": "anemadhon/foodmarket-bwa"
+        },
+        {
+          "k": "repository_owner",
+          "v": "anemadhon"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/anemadhon/foodmarket-bwa.git"
+        },
+        {
+          "k": "run_id",
+          "v": "1182338572"
+        },
+        {
+          "k": "run_number",
+          "v": "1"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "actor",
+          "v": "anemadhon"
+        },
+        {
+          "k": "workflow",
+          "v": "Laravel"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "78f79e6ccba5b22705af5d46d104b4bf598ac8ac"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "434e6d382c684b0c35024dc0bebef8ccc3cc4b26"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "50946665+anemadhon@users.noreply.github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "Muhammad Nur Ramadhan Alam"
+                              },
+                              {
+                                "k": "username",
+                                "v": "anemadhon"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "noreply@github.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "GitHub"
+                              },
+                              {
+                                "k": "username",
+                                "v": "web-flow"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "78f79e6ccba5b22705af5d46d104b4bf598ac8ac"
+                        },
+                        {
+                          "k": "message",
+                          "v": "Create laravel.yml"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2021-08-30T20:29:00+07:00"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "0f99a25cba756e315c685cee7caf2b849a7ad9f7"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/anemadhon/foodmarket-bwa/commit/78f79e6ccba5b22705af5d46d104b4bf598ac8ac"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/anemadhon/foodmarket-bwa/compare/434e6d382c68...78f79e6ccba5"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "50946665+anemadhon@users.noreply.github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "Muhammad Nur Ramadhan Alam"
+                          },
+                          {
+                            "k": "username",
+                            "v": "anemadhon"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "noreply@github.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "GitHub"
+                          },
+                          {
+                            "k": "username",
+                            "v": "web-flow"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "78f79e6ccba5b22705af5d46d104b4bf598ac8ac"
+                    },
+                    {
+                      "k": "message",
+                      "v": "Create laravel.yml"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2021-08-30T20:29:00+07:00"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "0f99a25cba756e315c685cee7caf2b849a7ad9f7"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/anemadhon/foodmarket-bwa/commit/78f79e6ccba5b22705af5d46d104b4bf598ac8ac"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "50946665+anemadhon@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "anemadhon"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/master"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/anemadhon/foodmarket-bwa.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1630329484.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "anemadhon/foodmarket-bwa"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/anemadhon/foodmarket-bwa.git"
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/anemadhon/foodmarket-bwa"
+                    },
+                    {
+                      "k": "id",
+                      "v": 401350351.0
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "PHP"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "foodmarket-bwa"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDEwOlJlcG9zaXRvcnk0MDEzNTAzNTE="
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/50946665?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "50946665+anemadhon@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/anemadhon/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/anemadhon/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/anemadhon/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/anemadhon/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/anemadhon"
+                          },
+                          {
+                            "k": "id",
+                            "v": 50946665.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "anemadhon"
+                          },
+                          {
+                            "k": "name",
+                            "v": "anemadhon"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDQ6VXNlcjUwOTQ2NjY1"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/anemadhon/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/anemadhon/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/anemadhon/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/anemadhon/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/anemadhon/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/anemadhon"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1630330140.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:anemadhon/foodmarket-bwa.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/anemadhon/foodmarket-bwa"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/teams"
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/anemadhon/foodmarket-bwa/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2021-08-30T13:20:04Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/anemadhon/foodmarket-bwa"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/50946665?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/anemadhon/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/anemadhon/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/anemadhon/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/anemadhon/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/anemadhon"
+                    },
+                    {
+                      "k": "id",
+                      "v": 50946665.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "anemadhon"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDQ6VXNlcjUwOTQ2NjY1"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/anemadhon/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/anemadhon/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/anemadhon/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/anemadhon/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/anemadhon/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/anemadhon"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        }
+      ]
+    },
+    "needs": {
+      "t": 2
+    },
+    "matrix": null,
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    }
+  }
+}
+[2021-08-30 13:44:37Z INFO JobRunner] Job ID 58db5990-a15b-5a14-b197-cb3269b353df
+[2021-08-30 13:44:37Z INFO JobRunner] Creating job server with URL: https://pipelines.actions.githubusercontent.com/6MeKJFKPiKncU9EaXGzI9UfzqfUkC32W0nYAOVmc3q1ZAMwMIr/
+[2021-08-30 13:44:37Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-08-30 13:44:37Z INFO Worker] Listening for cancel message from the channel.
+[2021-08-30 13:44:37Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2021-08-30 13:44:39Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-08-30 13:44:39Z INFO JobServerQueue] Start process web console line queue.
+[2021-08-30 13:44:39Z INFO JobServerQueue] Start process file upload queue.
+[2021-08-30 13:44:39Z INFO JobServerQueue] Start process timeline update queue.
+[2021-08-30 13:44:39Z INFO ExecutionContext] Initialize GitHub context
+[2021-08-30 13:44:39Z INFO ExecutionContext] Initialize Env context
+[2021-08-30 13:44:39Z INFO ConfigurationStore] currentAssemblyLocation: D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin\Runner.Worker.dll
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO ConfigurationStore] binPath: D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO ConfigurationStore] RootFolder: D:\my-data\other\laravel\foodmarket-backend\actions-runner
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known config file 'Runner': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\.runner'
+[2021-08-30 13:44:39Z INFO ConfigurationStore] ConfigFilePath: D:\my-data\other\laravel\foodmarket-backend\actions-runner\.runner
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known config file 'Credentials': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\.credentials'
+[2021-08-30 13:44:39Z INFO ConfigurationStore] CredFilePath: D:\my-data\other\laravel\foodmarket-backend\actions-runner\.credentials
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known config file 'MigratedCredentials': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\.credentials_migrated'
+[2021-08-30 13:44:39Z INFO ConfigurationStore] MigratedCredFilePath: D:\my-data\other\laravel\foodmarket-backend\actions-runner\.credentials_migrated
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known config file 'Service': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\.service'
+[2021-08-30 13:44:39Z INFO ConfigurationStore] ServiceConfigFilePath: D:\my-data\other\laravel\foodmarket-backend\actions-runner\.service
+[2021-08-30 13:44:39Z INFO ConfigurationStore] Read setting file: 298 chars
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Diag': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_diag'
+[2021-08-30 13:44:39Z INFO JobRunner] Starting the job execution context.
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:39Z INFO JobRunner] Validating directory permissions for: 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Tools': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_tool'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Temp': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_temp'
+[2021-08-30 13:44:39Z INFO JobRunner] Getting job extension.
+[2021-08-30 13:44:39Z INFO JobRunner] Initialize job. Getting all job steps.
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Diag': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_diag'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known config file 'Credentials': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\.credentials'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known config file 'SetupInfo': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\.setup_info'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:39Z INFO PipelineDirectoryManager] Loading tracking config if exists: D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_PipelineMapping\anemadhon/foodmarket-bwa\PipelineFolder.json
+[2021-08-30 13:44:39Z INFO PipelineDirectoryManager] Updating job run properties.
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:39Z INFO JobExtension] Downloading actions
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:39Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:41Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:41Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:41Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:41Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:41Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:41Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:41Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:41Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:41Z INFO ActionManager] Save archive 'https://api.github.com/repos/shivammathur/setup-php/zipball/15c43e89cdef867065b0213be354c2841860869e' into D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions\_temp_8aef9023-ae0f-441b-9f5e-390882789917\ce72931b-d668-4659-84c9-331c6c8f71d7.zip.
+[2021-08-30 13:44:49Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd63ad061-e13b-419f-81a6-77be6ca95801', success rate: 1/1.
+[2021-08-30 13:44:50Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd63ad061-e13b-419f-81a6-77be6ca95801', success rate: 1/1.
+[2021-08-30 13:44:52Z INFO ActionManager] Finished getting action repository.
+[2021-08-30 13:44:52Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:52Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:52Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:52Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:52Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:52Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:52Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:52Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:52Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/zipball/5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f' into D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions\_temp_1c9c170b-fd1c-42ec-9f4d-ba3a4f120606\9c4ea022-bd8d-465b-89f5-6256d4fa83cb.zip.
+[2021-08-30 13:44:53Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd63ad061-e13b-419f-81a6-77be6ca95801', success rate: 1/1.
+[2021-08-30 13:44:54Z INFO ActionManager] Finished getting action repository.
+[2021-08-30 13:44:54Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:54Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:54Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:54Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:54Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node12-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "step-env",
+  "step-with"
+]
+[2021-08-30 13:44:54Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:54Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:54Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:54Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Ignore action property author.
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Ignore action property branding.
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Setup PHP Action",
+  "description": "GitHub Action for PHP",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 8,
+          "col": 3,
+          "lit": "php-version"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 10,
+          "col": 14,
+          "lit": "8.0"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "extensions"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 15,
+          "col": 3,
+          "lit": "ini-values"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 18,
+          "col": 3,
+          "lit": "coverage"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 21,
+          "col": 3,
+          "lit": "tools"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-08-30 13:44:55Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:55Z INFO ActionManager] Load action that reference repository from 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions\shivammathur\setup-php\15c43e89cdef867065b0213be354c2841860869e'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Ignore action property author.
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Ignore action property branding.
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Setup PHP Action",
+  "description": "GitHub Action for PHP",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 8,
+          "col": 3,
+          "lit": "php-version"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 10,
+          "col": 14,
+          "lit": "8.0"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "extensions"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 15,
+          "col": 3,
+          "lit": "ini-values"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 18,
+          "col": 3,
+          "lit": "coverage"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 21,
+          "col": 3,
+          "lit": "tools"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-08-30 13:44:55Z INFO ActionManager] Action pre node.js file: N/A.
+[2021-08-30 13:44:55Z INFO ActionManager] Action node.js file: dist/index.js.
+[2021-08-30 13:44:55Z INFO ActionManager] Action post node.js file: N/A.
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 3,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 3,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-08-30 13:44:55Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:55Z INFO ActionManager] Load action that reference repository from 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions\actions\checkout\v2'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 3,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 3,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-08-30 13:44:55Z INFO ActionManager] Action pre node.js file: N/A.
+[2021-08-30 13:44:55Z INFO ActionManager] Action node.js file: dist/index.js.
+[2021-08-30 13:44:55Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2021-08-30 13:44:55Z INFO JobExtension] Adding .
+[2021-08-30 13:44:55Z INFO JobExtension] Adding .
+[2021-08-30 13:44:55Z INFO JobExtension] Adding .
+[2021-08-30 13:44:55Z INFO JobExtension] Adding .
+[2021-08-30 13:44:55Z INFO JobExtension] Adding .
+[2021-08-30 13:44:55Z INFO JobExtension] Adding .
+[2021-08-30 13:44:55Z INFO JobExtension] Adding .
+[2021-08-30 13:44:55Z INFO JobExtension] Adding .
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Diag': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_diag'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Diag': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_diag'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Diag': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_diag'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Diag': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_diag'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Diag': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_diag'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Diag': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_diag'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Diag': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_diag'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Diag': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_diag'
+[2021-08-30 13:44:55Z INFO JobExtension] Total accessible running process: 262.
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO JobRunner] Total job steps: 8.
+[2021-08-30 13:44:55Z INFO JobRunner] Run all job steps.
+[2021-08-30 13:44:55Z INFO StepsRunner] Processing step: DisplayName='Run shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e'
+[2021-08-30 13:44:55Z INFO StepsRunner] Evaluating: success()
+[2021-08-30 13:44:55Z INFO StepsRunner] Result: true
+[2021-08-30 13:44:55Z INFO StepsRunner] Starting the step.
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO StepsRunner] Which: 'chcp'
+[2021-08-30 13:44:55Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper] Starting process:
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Working directory: 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper] Process started with process id 21752, waiting for process exit.
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper] Finished process 21752 with exit code 0, and elapsed time 00:00:00.0157237.
+[2021-08-30 13:44:55Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:55Z INFO ActionManager] Load action that reference repository from 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions\shivammathur\setup-php\15c43e89cdef867065b0213be354c2841860869e'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Actions': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions'
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Ignore action property author.
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Ignore action property branding.
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Setup PHP Action",
+  "description": "GitHub Action for PHP",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 8,
+          "col": 3,
+          "lit": "php-version"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 10,
+          "col": 14,
+          "lit": "8.0"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "extensions"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 15,
+          "col": 3,
+          "lit": "ini-values"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 18,
+          "col": 3,
+          "lit": "coverage"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 21,
+          "col": 3,
+          "lit": "tools"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-08-30 13:44:55Z INFO ActionManager] Action pre node.js file: N/A.
+[2021-08-30 13:44:55Z INFO ActionManager] Action node.js file: dist/index.js.
+[2021-08-30 13:44:55Z INFO ActionManager] Action post node.js file: N/A.
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Temp': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_temp'
+[2021-08-30 13:44:55Z INFO ActionRunner] Write event payload to D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_temp\_github_workflow\event.json
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Work': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Temp': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_temp'
+[2021-08-30 13:44:55Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Input 'extensions': default value evaluate result: ""
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Input 'ini-values': default value evaluate result: ""
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Input 'coverage': default value evaluate result: ""
+[2021-08-30 13:44:55Z INFO ActionManifestManager] Input 'tools': default value evaluate result: ""
+[2021-08-30 13:44:55Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command set-env
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command set-output
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command save-state
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command add-path
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command warning
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command error
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command notice
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command debug
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command group
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2021-08-30 13:44:55Z INFO ActionCommandManager] Register action command extension for command echo
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Externals': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\externals'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper] Starting process:
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   File name: 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\externals\node12\bin\node.exe'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Arguments: '"D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_actions\shivammathur\setup-php\15c43e89cdef867065b0213be354c2841860869e\dist/index.js"'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Working directory: 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\foodmarket-bwa\foodmarket-bwa'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper] Process started with process id 18248, waiting for process exit.
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-08-30 13:44:55Z INFO ProcessInvokerWrapper] Finished process 18248 with exit code 1, and elapsed time 00:00:00.1536751.
+[2021-08-30 13:44:55Z INFO StepsRunner] Step result: Failed
+[2021-08-30 13:44:55Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2021-08-30 13:44:55Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-08-30 13:44:55Z INFO StepsRunner] Processing step: DisplayName='Run actions/checkout@v2'
+[2021-08-30 13:44:55Z INFO StepsRunner] Evaluating: success()
+[2021-08-30 13:44:55Z INFO StepsRunner] Result: false
+[2021-08-30 13:44:55Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-08-30 13:44:55Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-08-30 13:44:55Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-08-30 13:44:55Z INFO StepsRunner] Processing step: DisplayName='Copy .env'
+[2021-08-30 13:44:55Z INFO StepsRunner] Evaluating: success()
+[2021-08-30 13:44:55Z INFO StepsRunner] Result: false
+[2021-08-30 13:44:55Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-08-30 13:44:55Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-08-30 13:44:55Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-08-30 13:44:55Z INFO StepsRunner] Processing step: DisplayName='Install Dependencies'
+[2021-08-30 13:44:55Z INFO StepsRunner] Evaluating: success()
+[2021-08-30 13:44:55Z INFO StepsRunner] Result: false
+[2021-08-30 13:44:55Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-08-30 13:44:55Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-08-30 13:44:55Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-08-30 13:44:55Z INFO StepsRunner] Processing step: DisplayName='Generate key'
+[2021-08-30 13:44:55Z INFO StepsRunner] Evaluating: success()
+[2021-08-30 13:44:55Z INFO StepsRunner] Result: false
+[2021-08-30 13:44:55Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-08-30 13:44:55Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-08-30 13:44:55Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-08-30 13:44:55Z INFO StepsRunner] Processing step: DisplayName='Directory Permissions'
+[2021-08-30 13:44:55Z INFO StepsRunner] Evaluating: success()
+[2021-08-30 13:44:55Z INFO StepsRunner] Result: false
+[2021-08-30 13:44:55Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-08-30 13:44:55Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-08-30 13:44:55Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-08-30 13:44:55Z INFO StepsRunner] Processing step: DisplayName='Create Database'
+[2021-08-30 13:44:55Z INFO StepsRunner] Evaluating: success()
+[2021-08-30 13:44:55Z INFO StepsRunner] Result: false
+[2021-08-30 13:44:55Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-08-30 13:44:55Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-08-30 13:44:55Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-08-30 13:44:55Z INFO StepsRunner] Processing step: DisplayName='Execute tests (Unit and Feature tests) via PHPUnit'
+[2021-08-30 13:44:55Z INFO StepsRunner] Evaluating: success()
+[2021-08-30 13:44:55Z INFO StepsRunner] Result: false
+[2021-08-30 13:44:55Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-08-30 13:44:55Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-08-30 13:44:55Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-08-30 13:44:55Z INFO JobRunner] Finalize job.
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Bin': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\bin'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Root': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner'
+[2021-08-30 13:44:55Z INFO HostContext] Well known directory 'Diag': 'D:\my-data\other\laravel\foodmarket-backend\actions-runner\_diag'
+[2021-08-30 13:44:55Z INFO JobExtension] Initialize Env context
+[2021-08-30 13:44:55Z INFO JobExtension] Initialize steps context
+[2021-08-30 13:44:55Z INFO JobExtension] Total accessible running process: 262.
+[2021-08-30 13:44:55Z INFO JobRunner] Job result after all job steps finish: Failed
+[2021-08-30 13:44:55Z INFO JobRunner] Completing the job execution context.
+[2021-08-30 13:44:55Z INFO JobRunner] Shutting down the job server queue.
+[2021-08-30 13:44:55Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2021-08-30 13:44:56Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'aa43ff5b-a37a-5680-398b-6f9d7c2f6cff', success rate: 1/1.
+[2021-08-30 13:44:56Z INFO JobServerQueue] All queue process task stopped.
+[2021-08-30 13:44:57Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'aa43ff5b-a37a-5680-398b-6f9d7c2f6cff', success rate: 1/1.
+[2021-08-30 13:44:59Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'fcc78a07-409b-4578-a195-132338a91553', success rate: 1/1.
+[2021-08-30 13:44:59Z INFO JobServerQueue] Web console line queue drained.
+[2021-08-30 13:44:59Z INFO JobServerQueue] Uploading 4 files in one shot.
+[2021-08-30 13:45:06Z INFO JobServerQueue] Try to upload 4 log files or attachments, success rate: 4/4.
+[2021-08-30 13:45:06Z INFO JobServerQueue] File upload queue drained.
+[2021-08-30 13:45:07Z INFO JobServerQueue] Timeline update queue drained.
+[2021-08-30 13:45:07Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2021-08-30 13:45:07Z INFO TempDirectoryManager] Cleaning runner temp folder: D:\my-data\other\laravel\foodmarket-backend\actions-runner\_work\_temp
+[2021-08-30 13:45:07Z INFO JobRunner] Raising job completed event.
+[2021-08-30 13:45:08Z INFO Worker] Job completed.

@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "anemadhon/foodmarket-bwa",
+  "pipelineDirectory": "foodmarket-bwa",
+  "workspaceDirectory": "foodmarket-bwa\\foodmarket-bwa",
+  "repositories": {
+    "anemadhon/foodmarket-bwa": {
+      "repositoryPath": "foodmarket-bwa\\foodmarket-bwa",
+      "lastRunOn": "08/30/2021 20:41:19 +07:00"
+    }
+  },
+  "lastRunOn": "08/30/2021 20:44:39 +07:00"
+}

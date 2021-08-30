@@ -1,0 +1,9 @@
+﻿{
+  "agentId": 2,
+  "agentName": "ANEMADHON",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelines.actions.githubusercontent.com/6MeKJFKPiKncU9EaXGzI9UfzqfUkC32W0nYAOVmc3q1ZAMwMIr",
+  "gitHubUrl": "https://github.com/anemadhon/foodmarket-bwa",
+  "workFolder": "_work"
+}
