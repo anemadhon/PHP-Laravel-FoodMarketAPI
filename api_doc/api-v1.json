@@ -1,0 +1,419 @@
+{
+    "openapi":"3.0.3",
+    "info": {
+        "title":"FoodMarket API",
+        "version":"1.0",
+        "description":"OpenAPI for FoodMarket Apps API",
+        "contact": {
+            "email": "anemadhon@gmail.com",
+            "name": "Madhon"
+        }
+    },
+    "servers": [
+        {
+            "url":"http://{env}.foodmarket.com/api/",
+            "variables": {
+                "env": {
+                    "default": "dev",
+                    "enum": [
+                        "dev", 
+                        "live"
+                    ]
+                }
+            }
+        }
+    ],
+    "paths": {
+        "/user": {
+            "get": {
+                "summary": "Get User",
+                "responses": {
+                    "200": {
+                        "description": "Success get All Users",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "username": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "success": {
+                                        "description": "example success",
+                                        "value": [
+                                            {
+                                                "id": 1,
+                                                "name": "Udin",
+                                                "username": "udin_tea",
+                                                "email": "udintea@gg.com"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update User Profile",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "name",
+                                    "email"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "minLength": 4,
+                                        "maxLength": 100
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "maxLength": 100
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Update User Data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "success": {
+                                        "description": "example success",
+                                        "value": {
+                                            "status": "OK",
+                                            "message": "Berhasil"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/photo": {
+            "post": {
+                "summary": "Update User Photo Profile",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": ["profile_photo_path"],
+                                "properties": {
+                                    "profile_photo_path": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "example": {
+                                "avatar": {
+                                    "value": {
+                                        "profile_photo_path": "madhon.jpg"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success Update User Photo",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "success": {
+                                        "description": "example success",
+                                        "value": {
+                                            "status": "OK",
+                                            "message": "Berhasil"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/food": {
+            "get": {
+                "summary": "Get All Food",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "for get food by id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "example": {
+                            "id": {
+                                "value": 1
+                            }
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "for get food by name",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "example": {
+                            "Ayam": {
+                                "value": "Ayam Bakar"
+                            }
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "for get food by type",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "minLength": 1
+                        },
+                        "example": {
+                            "seller": {
+                                "value": "Best Seller"
+                            }
+                        }
+                    },
+                    {
+                        "name": "price_from",
+                        "in": "query",
+                        "description": "for get food by price_from (lower price)",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "minimum": 1
+                        },
+                        "example": {
+                            "dari": {
+                                "value": 8000
+                            }
+                        }
+                    },
+                    {
+                        "name": "price_to",
+                        "in": "query",
+                        "description": "for get food by price_from (higher price)",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "minimum": 1
+                        },
+                        "example": {
+                            "sampai": {
+                                "value": 80000
+                            }
+                        }
+                    },
+                    {
+                        "name": "rate_from",
+                        "in": "query",
+                        "description": "for get food by rate_from (lower rate)",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "minimum": 1
+                        },
+                        "example": {
+                            "dari": {
+                                "value": 2
+                            }
+                        }
+                    },
+                    {
+                        "name": "rate_to",
+                        "in": "query",
+                        "description": "for get food by rate_from (higher rate)",
+                        "required": false,
+                        "schema": {
+                            "type": "number",
+                            "minimum": 1
+                        },
+                        "example": {
+                            "sampai": {
+                                "value": 5
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get All Foods",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "price": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "success": {
+                                        "description": "example success",
+                                        "value": [
+                                            {
+                                                "id": 1,
+                                                "name": "Ayam Bakar",
+                                                "description": "Ayam Bakar Madu",
+                                                "price": 30000
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/transaction": {
+            "get": {
+                "summary": "Get All Transaction",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "for get transaction by id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "food_id",
+                        "in": "query",
+                        "description": "for get transaction by food id",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "for get transaction by status",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "minLength": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get All Transaction",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "food_id": {
+                                                "type": "integer"
+                                            },
+                                            "user_id": {
+                                                "type": "integer"
+                                            },
+                                            "qty": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                "example": {
+                                    "success": {
+                                        "description": "example success",
+                                        "value": [
+                                            {
+                                                "id": 1,
+                                                "food_id": 23,
+                                                "user_id": 5,
+                                                "qty": 5
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
