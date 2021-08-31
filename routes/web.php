@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GithubController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MicrosoftController;
 use App\Http\Controllers\TransactionController;
 
 /*
@@ -78,3 +79,9 @@ Route::get('/auth/redirect/google/callback', [GoogleController::class, 'Handling
 
 Route::get('/auth/redirect/github', [GithubController::class, 'redirect'])->name('sso.github');
 Route::get('/auth/redirect/github/callback', [GithubController::class, 'HandlingCallback']);
+
+Route::get('/auth/redirect/azure', [MicrosoftController::class, 'redirect'])->name('sso.azure');
+Route::get('/auth/redirect/azure/callback', [MicrosoftController::class, 'HandlingCallback']);
+
+Route::get('/auth/redirect/microsoft', [MicrosoftController::class, 'redirect'])->name('sso.microsoft');
+Route::get('/auth/redirect/microsoft/callback', [MicrosoftController::class, 'HandlingCallback']);

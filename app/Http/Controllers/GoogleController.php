@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\CreateUserSSO;
 use App\Models\User;
-use Auth;
-use Illuminate\Http\Request;
+use App\Helpers\CreateUserSSO;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class GoogleController extends Controller

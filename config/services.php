@@ -50,4 +50,16 @@ return [
         'redirect' => 'http://127.0.0.1:8000/auth/redirect/github/callback',
     ],
 
+    'azure' => [    
+        'client_id' => env('AZURE_CLIENT_ID'),  
+        'client_secret' => env('AZURE_CLIENT_SECRET'),  
+        'redirect' => 'http://127.0.0.1:8000/auth/redirect/azure/callback'
+    ],
+    
+    'microsift' => [    
+        'client_id' => env('AZURE_CLIENT_ID'),  
+        'client_secret' => env('AZURE_CLIENT_SECRET'),  
+        'redirect' => 'http://127.0.0.1:8000/auth/redirect/azure/callback'
+    ],
+
 ];
